@@ -1,0 +1,78 @@
+
+```{r}
+install.packages(c("tidyverse", "datasauRus"), repos = "https://cloud.r-project.org/")
+```
+
+
+```{r}
+library(tidyverse) 
+library(datasauRus)
+```
+  
+  
+```{r}
+datasaurus_dozen %>%
+  count(dataset) 
+```
+  
+```{r}
+dino_data <- datasaurus_dozen %>%
+  filter(dataset == "dino")
+ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
+  geom_point()
+```
+Plot y vs. x for the star dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between x and y for this dataset. How does this value compare to the r of dino?
+
+
+```{r}
+# Filter the datasaurus_dozen dataset for the "star" dataset
+star_data <- datasaurus_dozen %>%
+  filter(dataset == "star")
+
+# Plot y vs. x for the star dataset
+ggplot(data = star_data, aes(x = x, y = y)) +
+  geom_point() +
+  labs(title = "Scatter Plot of y vs. x for Star Dataset",
+       x = "x",
+       y = "y")
+r_star <- cor(star_data$x, star_data$y)
+print(paste("Correlation coefficient for star dataset (r_star):", r_star))
+```
+
+
+```{r}
+# Filter the datasaurus_dozen dataset for the "circle" dataset
+circle_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
+
+# Plot y vs. x for the circle dataset
+ggplot(data = circle_data, aes(x = x, y = y)) +
+  geom_point() +
+  labs(title = "Scatter Plot of y vs. x for Circle Dataset",
+       x = "x",
+       y = "y")
+
+r_circle <- cor(circle_data$x, circle_data$y)
+
+print(paste("Correlation coefficient for circle dataset (r_circle):", r_circle))
+
+
+```
+
+ 
+```{r}
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
+  geom_point()+
+  facet_wrap(~ dataset, ncol = 3) +
+  theme(legend.position = "none")
+```
+  
+  
+```{r}
+datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarize(r = cor(x, y))
+```
+  
+  
+  
