@@ -425,7 +425,7 @@ ggplot(results, aes(x=Feature, y=Importance,fill=Importance))+
 library(caret)
 
 ### REMOVE SUBSAMPLING FOR FINAL MODEL
-data.prep <- raw.data %>% select(-AppointmentID, -PatientID) 
+data.prep <- raw.data %>% select(-AppointmentID, -PatientID) %>% sample_n(10000)
 
 set.seed(42)
 data.split <- initial_split(data.prep, prop = 0.7)
