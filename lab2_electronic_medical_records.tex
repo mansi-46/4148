@@ -1,0 +1,1136 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\NormalTok{opts\_chunk}\SpecialCharTok{$}\FunctionTok{set}\NormalTok{(}\AttributeTok{echo =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(readr)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'dplyr' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tidyr' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'ggplot2' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(scales)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'scales' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'scales'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:readr':
+## 
+##     col_factor
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidytext)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tidytext' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(textstem)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'textstem' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: koRpus.lang.en
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'koRpus.lang.en' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: koRpus
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'koRpus' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: sylly
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'sylly' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## For information on available language packages for 'koRpus', run
+## 
+##   available.koRpus.lang()
+## 
+## and see ?install.koRpus.lang()
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'koRpus'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:readr':
+## 
+##     tokenize
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(clinspacy)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'clinspacy' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Welcome to clinspacy.
+\end{verbatim}
+
+\begin{verbatim}
+## By default, this package will install and use miniconda and create a "clinspacy" conda environment.
+\end{verbatim}
+
+\begin{verbatim}
+## If you want to override this behavior, use clinspacy_init(miniconda = FALSE) and specify an alternative environment using reticulate::use_python() or reticulate::use_conda().
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(topicmodels)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'topicmodels' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{\textquotesingle{}reshape2\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'reshape2'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:tidyr':
+## 
+##     smiths
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(stringr)}
+\end{Highlighting}
+\end{Shaded}
+
+This practical is based on exploratory data analysis, named entity
+recognition, and topic modelling of unstructured medical note free-text
+data derived from electronic medical records (EMR). Real EMR data is
+very difficult to access without a specific need/request so this data
+set is derived from \href{https://mtsamples.com/}{medical transcription}
+data instead. I'll also caveat that the options of natural language
+processing (NLP) in R are far inferior to those available in Python.
+
+First, install the packages in the setup block
+(\texttt{install.packages(c("readr",\ "dplyr",\ "tidyr",\ "ggplot2",\ "tidtext",\ "textstem",\ "clinspacy",\ "topicmodels",\ "reshape2"))}).
+
+Note: To try and make it clearer which library certain functions are
+coming from clearer, I'll try to do explicit imports throughout this
+notebook.
+
+\subsection{Data Parsing}\label{data-parsing}
+
+After that we can grab the dataset directly from the \texttt{clinspacy}
+library.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{raw.data }\OtherTok{\textless{}{-}}\NormalTok{ clinspacy}\SpecialCharTok{::}\FunctionTok{dataset\_mtsamples}\NormalTok{()}
+\NormalTok{dplyr}\SpecialCharTok{::}\FunctionTok{glimpse}\NormalTok{(raw.data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 4,999
+## Columns: 6
+## $ note_id           <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 1~
+## $ description       <chr> "A 23-year-old white female presents with complaint ~
+## $ medical_specialty <chr> "Allergy / Immunology", "Bariatrics", "Bariatrics", ~
+## $ sample_name       <chr> "Allergic Rhinitis", "Laparoscopic Gastric Bypass Co~
+## $ transcription     <chr> "SUBJECTIVE:,  This 23-year-old white female present~
+## $ keywords          <chr> "allergy / immunology, allergic rhinitis, allergies,~
+\end{verbatim}
+
+There is no explanation or data dictionary with this dataset, which is a
+surprisingly common and frustrating turn of events!
+
+\textbf{1} Using the output of dplyr's \texttt{glimpse} command (or
+rstudio's data viewer by clicking on \texttt{raw.data} in the
+Environment pane) provide a description of what you think each variable
+in this dataset contains.
+
+note\_id: Unique identifier for each medical note. description: Brief
+summary of the note, including the patient's condition or reason for
+visit. medical\_specialty: The medical field related to the note (e.g.,
+``Allergy / Immunology''). sample\_name: Title or name summarizing the
+main topic or procedure of the note. transcription: Detailed clinical
+text of the medical note. keywords: Relevant keywords for categorization
+and search.
+
+Let's see how many different medical specialties are featured in these
+notes:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{raw.data }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(medical\_specialty) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{n\_distinct}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 40
+\end{verbatim}
+
+So, how many transcripts are there from each specialty:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Count of different medical specialties}
+\NormalTok{num\_specialties }\OtherTok{\textless{}{-}}\NormalTok{ raw.data }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(medical\_specialty)}
+\NormalTok{num\_specialties}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                medical_specialty    n
+## 1           Allergy / Immunology    7
+## 2                        Autopsy    8
+## 3                     Bariatrics   18
+## 4     Cardiovascular / Pulmonary  372
+## 5                   Chiropractic   14
+## 6     Consult - History and Phy.  516
+## 7     Cosmetic / Plastic Surgery   27
+## 8                      Dentistry   27
+## 9                    Dermatology   29
+## 10          Diets and Nutritions   10
+## 11             Discharge Summary  108
+## 12          ENT - Otolaryngology   98
+## 13        Emergency Room Reports   75
+## 14                 Endocrinology   19
+## 15              Gastroenterology  230
+## 16              General Medicine  259
+## 17         Hematology - Oncology   90
+## 18     Hospice - Palliative Care    6
+## 19        IME-QME-Work Comp etc.   16
+## 20      Lab Medicine - Pathology    8
+## 21                       Letters   23
+## 22                    Nephrology   81
+## 23                     Neurology  223
+## 24                  Neurosurgery   94
+## 25       Obstetrics / Gynecology  160
+## 26                  Office Notes   51
+## 27                 Ophthalmology   83
+## 28                    Orthopedic  355
+## 29               Pain Management   62
+## 30         Pediatrics - Neonatal   70
+## 31     Physical Medicine - Rehab   21
+## 32                      Podiatry   47
+## 33       Psychiatry / Psychology   53
+## 34                     Radiology  273
+## 35                  Rheumatology   10
+## 36 SOAP / Chart / Progress Notes  166
+## 37                Sleep Medicine   20
+## 38             Speech - Language    9
+## 39                       Surgery 1103
+## 40                       Urology  158
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ggplot2}\SpecialCharTok{::}\FunctionTok{ggplot}\NormalTok{(raw.data, ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y=}\NormalTok{medical\_specialty)) }\SpecialCharTok{+}\NormalTok{ ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_bar}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{labs}\NormalTok{(}\AttributeTok{x=}\StringTok{"Document Count"}\NormalTok{, }\AttributeTok{y=}\StringTok{"Medical Speciality"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab2_electronic_medical_records_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+Let's make our life easier and filter down to 3 specialties: a
+diagonstic/lab, a medical, and a surgical specialty
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{filtered.data }\OtherTok{\textless{}{-}}\NormalTok{ raw.data }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(medical\_specialty }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Orthopedic"}\NormalTok{, }\StringTok{"Radiology"}\NormalTok{, }\StringTok{"Surgery"}\NormalTok{)) }
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Text Processing}\label{text-processing}
+
+Let's now apply our standard pre-processing to the transcripts from
+these specialties.\\
+We are going to use the \texttt{tidytext} package to tokenise the
+transcript free-text.\\
+Let's remove stop words first. e.g., ``the'', ``of'', ``to'', and so
+forth. These are known as stop words and we can remove them relative
+easily using a list from \texttt{tidytext::stop\_words} and
+\texttt{dplyr::anti\_join()}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{analysis.data }\OtherTok{\textless{}{-}}\NormalTok{ filtered.data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{unnest\_tokens}\NormalTok{(word, transcription) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{word =} \FunctionTok{str\_replace\_all}\NormalTok{(word, }\StringTok{"[\^{}[:alnum:]]"}\NormalTok{, }\StringTok{""}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{str\_detect}\NormalTok{(word, }\StringTok{"[0{-}9]"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{anti\_join}\NormalTok{(stop\_words) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(note\_id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{transcription =} \FunctionTok{paste}\NormalTok{(word, }\AttributeTok{collapse =} \StringTok{" "}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(}\FunctionTok{select}\NormalTok{(filtered.data, }\SpecialCharTok{{-}}\NormalTok{transcription), }\AttributeTok{by =} \StringTok{"note\_id"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Joining with `by = join_by(word)`
+\end{verbatim}
+
+Now let's tokenize the \texttt{transcription} to words (unigram) By
+default this tokenises to words but other options include characters,
+n-grams, sentences, lines, paragraphs, or separation around a regular
+expression.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tokenized.data.unigram }\OtherTok{\textless{}{-}}\NormalTok{ analysis.data }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ tidytext}\SpecialCharTok{::}\FunctionTok{unnest\_tokens}\NormalTok{(word, transcription, }\AttributeTok{to\_lower=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+You can also do bi-grams
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tokenized.data }\OtherTok{\textless{}{-}}\NormalTok{ analysis.data }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ tidytext}\SpecialCharTok{::}\FunctionTok{unnest\_tokens}\NormalTok{(ngram, transcription, }\AttributeTok{token =} \StringTok{"ngrams"}\NormalTok{, }\AttributeTok{n=}\DecValTok{2}\NormalTok{, }\AttributeTok{to\_lower =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+How many stop words are there in \texttt{tidytext::stop\_words} from
+each lexicon?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tidytext}\SpecialCharTok{::}\NormalTok{stop\_words }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(lexicon) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{distinct}\NormalTok{(word) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{summarise}\NormalTok{(}\AttributeTok{n=}\NormalTok{dplyr}\SpecialCharTok{::}\FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 2
+##   lexicon      n
+##   <chr>    <int>
+## 1 SMART      570
+## 2 onix       398
+## 3 snowball   174
+\end{verbatim}
+
+\textbf{2} How many unique unigrams are there in the transcripts from
+each specialty:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Insert code here. }
+\NormalTok{tokenized.data.unigram }\OtherTok{\textless{}{-}}\NormalTok{ analysis.data }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  tidytext}\SpecialCharTok{::}\FunctionTok{unnest\_tokens}\NormalTok{(word, transcription, }\AttributeTok{to\_lower =} \ConstantTok{TRUE}\NormalTok{)}
+
+\NormalTok{unique\_unigrams\_count }\OtherTok{\textless{}{-}}\NormalTok{ tokenized.data.unigram }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(medical\_specialty) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{unique\_unigrams =} \FunctionTok{n\_distinct}\NormalTok{(word))}
+
+\FunctionTok{print}\NormalTok{(unique\_unigrams\_count)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 2
+##   medical_specialty unique_unigrams
+##   <chr>                       <int>
+## 1 Orthopedic                   7682
+## 2 Radiology                    5935
+## 3 Surgery                     11977
+\end{verbatim}
+
+Let's plot some distribution of unigram tokens (words)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{word\_counts }\OtherTok{\textless{}{-}}\NormalTok{ tokenized.data.unigram }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{group\_by}\NormalTok{(word) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{ungroup}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(count))}
+
+\NormalTok{count\_distribution }\OtherTok{\textless{}{-}}\NormalTok{ word\_counts }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(count) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{num\_words =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ungroup}\NormalTok{()}
+ 
+\NormalTok{ ggplot2}\SpecialCharTok{::}\FunctionTok{ggplot}\NormalTok{(count\_distribution, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ count, }\AttributeTok{y =}\NormalTok{ num\_words)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Scatter Plot of Count Distribution"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Count of Unique Words"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Number of Words"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab2_electronic_medical_records_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+Let's plot some distribution of bigram tokens (words)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{word\_counts }\OtherTok{\textless{}{-}}\NormalTok{ tokenized.data }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{group\_by}\NormalTok{(ngram) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{ungroup}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(count))}
+
+\NormalTok{count\_distribution }\OtherTok{\textless{}{-}}\NormalTok{ word\_counts }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(count) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{num\_words =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ungroup}\NormalTok{()}
+ 
+\NormalTok{ ggplot2}\SpecialCharTok{::}\FunctionTok{ggplot}\NormalTok{(count\_distribution, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ count, }\AttributeTok{y =}\NormalTok{ num\_words)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Scatter Plot of Count Distribution"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Count of Unique Bigrams"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Number of Words"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab2_electronic_medical_records_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\textbf{3} How many unique bi-grams are there in each category without
+stop words and numbers?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tokenized.data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(medical\_specialty) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{unique\_bigrams =} \FunctionTok{n\_distinct}\NormalTok{(ngram))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 2
+##   medical_specialty unique_bigrams
+##   <chr>                      <int>
+## 1 Orthopedic                 55732
+## 2 Radiology                  28297
+## 3 Surgery                   130404
+\end{verbatim}
+
+Sometimes we are interested in tokenising/segmenting things other than
+words like whole sentences or paragraphs.
+
+\textbf{4} How many unique sentences are there in each category? Hint:
+use \texttt{?tidytext::unnest\_tokens} to see the documentation for this
+function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tokenized\_data\_sentences }\OtherTok{\textless{}{-}}\NormalTok{ analysis.data }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  tidytext}\SpecialCharTok{::}\FunctionTok{unnest\_tokens}\NormalTok{(sentence, transcription, }\AttributeTok{token =} \StringTok{"sentences"}\NormalTok{)}
+
+\NormalTok{unique\_sentences\_count }\OtherTok{\textless{}{-}}\NormalTok{ tokenized\_data\_sentences  }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(medical\_specialty) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{unique\_sentences =} \FunctionTok{n\_distinct}\NormalTok{(sentence))}
+
+\FunctionTok{print}\NormalTok{(unique\_sentences\_count)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 2
+##   medical_specialty unique_sentences
+##   <chr>                        <int>
+## 1 Orthopedic                     354
+## 2 Radiology                      273
+## 3 Surgery                       1087
+\end{verbatim}
+
+Now that we've tokenized to words and removed stop words, we can find
+the most commonly word used within each category:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tokenized.data }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(medical\_specialty) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{count}\NormalTok{(ngram, }\AttributeTok{sort =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{top\_n}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Selecting by n
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 16 x 3
+## # Groups:   medical_specialty [3]
+##    medical_specialty ngram                       n
+##    <chr>             <chr>                   <int>
+##  1 Surgery           prepped draped            696
+##  2 Surgery           preoperative diagnosis    555
+##  3 Surgery           procedure patient         551
+##  4 Surgery           postoperative diagnosis   518
+##  5 Surgery           tolerated procedure       515
+##  6 Orthopedic        prepped draped            183
+##  7 Orthopedic        preoperative diagnosis    141
+##  8 Orthopedic        lower extremity           139
+##  9 Orthopedic        range motion              139
+## 10 Orthopedic        postoperative diagnosis   124
+## 11 Radiology         carotid artery             59
+## 12 Radiology         heart rate                 52
+## 13 Radiology         reason exam                51
+## 14 Radiology         left ventricular           50
+## 15 Radiology         coronary artery            43
+## 16 Radiology         exam unremarkable          43
+\end{verbatim}
+
+We should lemmatize the tokenized words to prevent over counting of
+similar words before further analyses.\\
+Annoyingly, \texttt{tidytext} doesn't have a built-in lemmatizer.
+
+\textbf{5} Do you think a general purpose lemmatizer will work well for
+medical data? Why might it not?
+
+A general-purpose lemmatizer may not be optimal for medical data due to
+the specialized nature of medical terminology, which often includes
+jargon, abbreviations, and domain-specific variants not recognized by
+generic lemmatizers. Medical documents frequently employ
+context-dependent variations and nuanced language, such as negations and
+modifiers, requiring a deeper understanding of medical context for
+accurate lemmatization. Additionally, the diverse range of medical
+concepts and their multifaceted linguistic representations pose
+challenges for general lemmatization algorithms, potentially leading to
+inaccuracies and inconsistencies in lemma assignments. Therefore,
+specialized medical lemmatizers or domain-specific processing approaches
+are preferred for effectively handling medical text data.
+
+Unfortunately, a specialised lemmatizer like in \texttt{clinspacy} is
+going to be very painful to install so we will just use a simple
+lemmatizer for now:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lemmatized.data }\OtherTok{\textless{}{-}}\NormalTok{ tokenized.data }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{lemma=}\NormalTok{textstem}\SpecialCharTok{::}\FunctionTok{lemmatize\_words}\NormalTok{(ngram))}
+\end{Highlighting}
+\end{Shaded}
+
+We can now calculate the frequency of lemmas within each specialty and
+note.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lemma.freq }\OtherTok{\textless{}{-}}\NormalTok{ lemmatized.data }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{count}\NormalTok{(medical\_specialty, lemma) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(medical\_specialty) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{proportion =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n)) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  tidyr}\SpecialCharTok{::}\FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{names\_from =}\NormalTok{ medical\_specialty, }\AttributeTok{values\_from =}\NormalTok{ proportion) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  tidyr}\SpecialCharTok{::}\FunctionTok{pivot\_longer}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Surgery}\StringTok{\textasciigrave{}}\SpecialCharTok{:}\StringTok{\textasciigrave{}}\AttributeTok{Radiology}\StringTok{\textasciigrave{}}\NormalTok{,}
+               \AttributeTok{names\_to =} \StringTok{"medical\_specialty"}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{"proportion"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+And plot the relative proportions
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ggplot2}\SpecialCharTok{::}\FunctionTok{ggplot}\NormalTok{(lemma.freq, ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{proportion, }
+                                         \AttributeTok{y=}\StringTok{\textasciigrave{}}\AttributeTok{Orthopedic}\StringTok{\textasciigrave{}}\NormalTok{,}
+                                         \AttributeTok{color=}\FunctionTok{abs}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Orthopedic}\StringTok{\textasciigrave{}} \SpecialCharTok{{-}}\NormalTok{ proportion))) }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_abline}\NormalTok{(}\AttributeTok{color=}\StringTok{"gray40"}\NormalTok{, }\AttributeTok{lty=}\DecValTok{2}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{alpha=}\FloatTok{0.1}\NormalTok{, }\AttributeTok{size=}\FloatTok{2.5}\NormalTok{, }\AttributeTok{width=}\FloatTok{0.3}\NormalTok{, }\AttributeTok{height=}\FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_text}\NormalTok{(ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label=}\NormalTok{lemma), }\AttributeTok{check\_overlap=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{vjust=}\FloatTok{1.5}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{scale\_x\_log10}\NormalTok{(}\AttributeTok{labels=}\NormalTok{scales}\SpecialCharTok{::}\FunctionTok{percent\_format}\NormalTok{()) }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{scale\_y\_log10}\NormalTok{(}\AttributeTok{labels=}\NormalTok{scales}\SpecialCharTok{::}\FunctionTok{percent\_format}\NormalTok{()) }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{scale\_color\_gradient}\NormalTok{(}\AttributeTok{limits=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.001}\NormalTok{), }\AttributeTok{low=}\StringTok{"darkslategray4"}\NormalTok{, }\AttributeTok{high=}\StringTok{"gray75"}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{medical\_specialty, }\AttributeTok{ncol =} \DecValTok{2}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position=}\StringTok{"none"}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::} \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"Orthopedic"}\NormalTok{, }\AttributeTok{x =} \ConstantTok{NULL}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 314404 rows containing missing values or values outside the scale range
+## (`geom_point()`).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 314404 rows containing missing values or values outside the scale range
+## (`geom_text()`).
+\end{verbatim}
+
+\includegraphics{lab2_electronic_medical_records_files/figure-latex/unnamed-chunk-18-1.pdf}
+\textbf{6} What does this plot tell you about the relative similarity of
+lemma frequencies between Surgery and Orthopedic and between radiology
+and Surgery? Based on what these specialties involve, is this what you
+would expect?
+
+The plot comparing lemma frequencies between ``Surgery'' and
+``Orthopedic'', and between ``Radiology'' and ``Surgery'' provides
+insights into the relative similarity of language usage within these
+medical specialties. In the case of ``Surgery'' and ``Orthopedic'', the
+data points appear relatively clustered around the diagonal dashed line,
+indicating a closer alignment in lemma frequencies between the two
+specialties. This suggests that the language used in both ``Surgery''
+and ``Orthopedic'' contexts shares similarities, which aligns with
+expectations given the interconnected nature of these specialties.
+Orthopedic surgery involves procedures related to bones, joints, and
+muscles, which are often performed by surgeons specializing in
+orthopedics. As such, the terminology and concepts used in both surgical
+and orthopedic contexts are likely to overlap, leading to comparable
+lemma frequencies. Conversely, between ``Radiology'' and ``Surgery'',
+the data points exhibit greater dispersion, indicating a more pronounced
+difference in lemma frequencies. This divergence is unsurprising given
+the distinct roles and functions of these specialties. Radiology
+primarily involves medical imaging and diagnostic procedures, whereas
+surgery encompasses a broader range of operative interventions.
+Therefore, the disparate nature of the medical tasks performed within
+these specialties corresponds to the observed differences in lemma
+frequencies, reflecting the unique linguistic characteristics inherent
+to each domain.
+
+\textbf{7} Modify the above plotting code to do a direct comparison of
+Surgery and Radiology (i.e., have Surgery or Radiology on the Y-axis and
+the other 2 specialties as the X facets)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lemma\_1.freq }\OtherTok{\textless{}{-}}\NormalTok{ lemmatized.data }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{count}\NormalTok{(medical\_specialty, lemma) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(medical\_specialty) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{proportion =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n)) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  tidyr}\SpecialCharTok{::}\FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{names\_from =}\NormalTok{ medical\_specialty, }\AttributeTok{values\_from =}\NormalTok{ proportion) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  tidyr}\SpecialCharTok{::}\FunctionTok{pivot\_longer}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Orthopedic}\StringTok{\textasciigrave{}}\SpecialCharTok{:}\StringTok{\textasciigrave{}}\AttributeTok{Radiology}\StringTok{\textasciigrave{}}\NormalTok{,}
+               \AttributeTok{names\_to =} \StringTok{"medical\_specialty"}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{"proportion"}\NormalTok{)}
+
+\NormalTok{ggplot2}\SpecialCharTok{::}\FunctionTok{ggplot}\NormalTok{(lemma\_1.freq, ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{proportion, }
+                                         \AttributeTok{y=}\StringTok{\textasciigrave{}}\AttributeTok{Surgery}\StringTok{\textasciigrave{}}\NormalTok{,}
+                                         \AttributeTok{color=}\FunctionTok{abs}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Surgery}\StringTok{\textasciigrave{}} \SpecialCharTok{{-}}\NormalTok{ proportion))) }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_abline}\NormalTok{(}\AttributeTok{color=}\StringTok{"gray40"}\NormalTok{, }\AttributeTok{lty=}\DecValTok{2}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{alpha=}\FloatTok{0.1}\NormalTok{, }\AttributeTok{size=}\FloatTok{2.5}\NormalTok{, }\AttributeTok{width=}\FloatTok{0.3}\NormalTok{, }\AttributeTok{height=}\FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_text}\NormalTok{(ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label=}\NormalTok{lemma), }\AttributeTok{check\_overlap=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{vjust=}\FloatTok{1.5}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{scale\_x\_log10}\NormalTok{(}\AttributeTok{labels=}\NormalTok{scales}\SpecialCharTok{::}\FunctionTok{percent\_format}\NormalTok{()) }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{scale\_y\_log10}\NormalTok{(}\AttributeTok{labels=}\NormalTok{scales}\SpecialCharTok{::}\FunctionTok{percent\_format}\NormalTok{()) }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{scale\_color\_gradient}\NormalTok{(}\AttributeTok{limits=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.001}\NormalTok{), }\AttributeTok{low=}\StringTok{"darkslategray4"}\NormalTok{, }\AttributeTok{high=}\StringTok{"gray75"}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{medical\_specialty, }\AttributeTok{ncol =} \DecValTok{2}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position=}\StringTok{"none"}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::} \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"Surgery"}\NormalTok{, }\AttributeTok{x =} \ConstantTok{NULL}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 317819 rows containing missing values or values outside the scale range
+## (`geom_point()`).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 317820 rows containing missing values or values outside the scale range
+## (`geom_text()`).
+\end{verbatim}
+
+\includegraphics{lab2_electronic_medical_records_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lemma\_2.freq }\OtherTok{\textless{}{-}}\NormalTok{ lemmatized.data }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{count}\NormalTok{(medical\_specialty, lemma) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(medical\_specialty) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{proportion =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n)) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  tidyr}\SpecialCharTok{::}\FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{names\_from =}\NormalTok{ medical\_specialty, }\AttributeTok{values\_from =}\NormalTok{ proportion) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  tidyr}\SpecialCharTok{::}\FunctionTok{pivot\_longer}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"Surgery"}\NormalTok{, }\StringTok{"Orthopedic"}\NormalTok{),}
+               \AttributeTok{names\_to =} \StringTok{"medical\_specialty"}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{"proportion"}\NormalTok{)}
+
+\NormalTok{ggplot2}\SpecialCharTok{::}\FunctionTok{ggplot}\NormalTok{(lemma\_2.freq, ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{proportion, }
+                                         \AttributeTok{y=}\StringTok{\textasciigrave{}}\AttributeTok{Radiology}\StringTok{\textasciigrave{}}\NormalTok{,}
+                                         \AttributeTok{color=}\FunctionTok{abs}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Radiology}\StringTok{\textasciigrave{}} \SpecialCharTok{{-}}\NormalTok{ proportion))) }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_abline}\NormalTok{(}\AttributeTok{color=}\StringTok{"gray40"}\NormalTok{, }\AttributeTok{lty=}\DecValTok{2}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{alpha=}\FloatTok{0.1}\NormalTok{, }\AttributeTok{size=}\FloatTok{2.5}\NormalTok{, }\AttributeTok{width=}\FloatTok{0.3}\NormalTok{, }\AttributeTok{height=}\FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_text}\NormalTok{(ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label=}\NormalTok{lemma), }\AttributeTok{check\_overlap=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{vjust=}\FloatTok{1.5}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{scale\_x\_log10}\NormalTok{(}\AttributeTok{labels=}\NormalTok{scales}\SpecialCharTok{::}\FunctionTok{percent\_format}\NormalTok{()) }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{scale\_y\_log10}\NormalTok{(}\AttributeTok{labels=}\NormalTok{scales}\SpecialCharTok{::}\FunctionTok{percent\_format}\NormalTok{()) }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{scale\_color\_gradient}\NormalTok{(}\AttributeTok{limits=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.001}\NormalTok{), }\AttributeTok{low=}\StringTok{"darkslategray4"}\NormalTok{, }\AttributeTok{high=}\StringTok{"gray75"}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{medical\_specialty, }\AttributeTok{ncol =} \DecValTok{2}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position=}\StringTok{"none"}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::} \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"Radiology"}\NormalTok{, }\AttributeTok{x =} \ConstantTok{NULL}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 343445 rows containing missing values or values outside the scale range
+## (`geom_point()`).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 343446 rows containing missing values or values outside the scale range
+## (`geom_text()`).
+\end{verbatim}
+
+\includegraphics{lab2_electronic_medical_records_files/figure-latex/unnamed-chunk-20-1.pdf}
+
+\subsubsection{TF-IDF Normalisation}\label{tf-idf-normalisation}
+
+Maybe looking at lemmas across all notes in a specialty is misleading,
+what if we look at lemma frequencies across a specialty.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lemma.counts }\OtherTok{\textless{}{-}}\NormalTok{ lemmatized.data }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{count}\NormalTok{(medical\_specialty, lemma)}
+\NormalTok{total.counts }\OtherTok{\textless{}{-}}\NormalTok{ lemma.counts }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{                      dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(medical\_specialty) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{                      dplyr}\SpecialCharTok{::}\FunctionTok{summarise}\NormalTok{(}\AttributeTok{total=}\FunctionTok{sum}\NormalTok{(n))}
+
+\NormalTok{all.counts }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{left\_join}\NormalTok{(lemma.counts, total.counts)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Joining with `by = join_by(medical_specialty)`
+\end{verbatim}
+
+Now we can calculate the term frequency / invariant document frequency
+(tf-idf):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{all.counts.tfidf }\OtherTok{\textless{}{-}}\NormalTok{ tidytext}\SpecialCharTok{::}\FunctionTok{bind\_tf\_idf}\NormalTok{(all.counts, lemma, medical\_specialty, n) }
+\end{Highlighting}
+\end{Shaded}
+
+We can then look at the top 10 lemma by tf-idf within each specialty:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{all.counts.tfidf }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(medical\_specialty) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{slice\_max}\NormalTok{(}\AttributeTok{order\_by=}\NormalTok{tf\_idf, }\AttributeTok{n=}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 30 x 7
+## # Groups:   medical_specialty [3]
+##    medical_specialty lemma                     n total       tf   idf   tf_idf
+##    <chr>             <chr>                 <int> <int>    <dbl> <dbl>    <dbl>
+##  1 Orthopedic        range motion            139 97774 0.00142  0.405 0.000576
+##  2 Orthopedic        carpal ligament          85 97774 0.000869 0.405 0.000352
+##  3 Orthopedic        transverse carpal        81 97774 0.000828 0.405 0.000336
+##  4 Orthopedic        extremity prepped        79 97774 0.000808 0.405 0.000328
+##  5 Orthopedic        proximal phalanx         75 97774 0.000767 0.405 0.000311
+##  6 Orthopedic        department anesthesia    63 97774 0.000644 0.405 0.000261
+##  7 Orthopedic        dissection carried       63 97774 0.000644 0.405 0.000261
+##  8 Orthopedic        steri strips             59 97774 0.000603 0.405 0.000245
+##  9 Orthopedic        closed vicryl            58 97774 0.000593 0.405 0.000241
+## 10 Orthopedic        dressing applied         58 97774 0.000593 0.405 0.000241
+## # i 20 more rows
+\end{verbatim}
+
+\textbf{8} Are there any lemmas that stand out in these lists? Why or
+why not?
+
+In the Orthopedic specialty, terms like ``range motion'', ``carpal
+ligament'', and ``transverse carpal'' stand out due to their relatively
+high TF-IDF scores. These terms are likely specific to orthopedic
+procedures, anatomy, or conditions, making them significant within the
+context of orthopedic notes.
+
+Similarly, in the Radiology specialty, terms like ``myocardial
+perfusion'', ``motor units'', and ``calcific plaque'' have high TF-IDF
+scores, indicating their importance within radiological contexts, such
+as diagnostic imaging findings or procedures.
+
+In the Surgery specialty, terms like ``anterior chamber'', ``lithotomy
+position'', and ``external oblique'' stand out with high TF-IDF scores,
+suggesting their relevance to surgical procedures, anatomy, or
+instrumentation.
+
+We can look at transcriptions in full using these lemmas to check how
+they are used with \texttt{stringr::str\_detect}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{analysis.data }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(medical\_specialty, transcription) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(stringr}\SpecialCharTok{::}\FunctionTok{str\_detect}\NormalTok{(transcription, }\StringTok{\textquotesingle{}steri strips\textquotesingle{}}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{slice}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 2
+##   medical_specialty transcription                                               
+##   <chr>             <chr>                                                       
+## 1 Surgery           preoperative diagnoses hallux rigidus left foot elevated me~
+\end{verbatim}
+
+\textbf{9} Extract an example of one of the other ``top lemmas'' by
+modifying the above code
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{analysis.data }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(medical\_specialty, transcription) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(stringr}\SpecialCharTok{::}\FunctionTok{str\_detect}\NormalTok{(transcription, }\StringTok{\textquotesingle{}closed vicryl\textquotesingle{}}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(medical\_specialty }\SpecialCharTok{==} \StringTok{"Surgery"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{slice}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 2
+##   medical_specialty transcription                                               
+##   <chr>             <chr>                                                       
+## 1 Surgery           title operation placement ventriculoperitoneal vp shunts st~
+\end{verbatim}
+
+\subsection{Topic Modelling}\label{topic-modelling}
+
+In NLP, we often have collections of documents (in our case EMR
+transcriptions) that we'd like to divide into groups so that we can
+understand them separately. Topic modeling is a method for unsupervised
+classification of such documents, similar to clustering on numeric data.
+
+Latent Dirichlet allocation (LDA) is a particularly popular method for
+fitting a topic model. It treats each document as a mixture of topics,
+and each topic as a mixture of words. This allows documents to
+``overlap'' each other in terms of content, rather than being separated
+into discrete groups, in a way that mirrors typical use of natural
+language.
+
+\begin{itemize}
+\item
+  Every document is a mixture of topics. We imagine that each document
+  may contain words from several topics in particular proportions. For
+  example, in a two-topic model we could say ``Document 1 is 90\% topic
+  A and 10\% topic B, while Document 2 is 30\% topic A and 70\% topic
+  B.''
+\item
+  Every topic is a mixture of words. For example, we could imagine a
+  two-topic model of American news, with one topic for ``politics'' and
+  one for ``entertainment.'' The most common words in the politics topic
+  might be ``President'', ``Congress'', and ``government'', while the
+  entertainment topic may be made up of words such as ``movies'',
+  ``television'', and ``actor''. Importantly, words can be shared
+  between topics; a word like ``budget'' might appear in both equally.
+\end{itemize}
+
+LDA is a mathematical method for estimating both of these at the same
+time: finding the mixture of words that is associated with each topic,
+while also determining the mixture of topics that describes each
+document. There are a number of existing implementations of this
+algorithm, and we'll explore one of them in depth.
+
+First lets calculate a term frequency matrix for each transcription:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lemma.counts }\OtherTok{\textless{}{-}}\NormalTok{ lemmatized.data }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{count}\NormalTok{(note\_id, lemma)}
+\NormalTok{total.counts }\OtherTok{\textless{}{-}}\NormalTok{ lemma.counts }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{                      dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(note\_id) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{                      dplyr}\SpecialCharTok{::}\FunctionTok{summarise}\NormalTok{(}\AttributeTok{total=}\FunctionTok{sum}\NormalTok{(n))}
+
+\NormalTok{all.counts }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{left\_join}\NormalTok{(lemma.counts, total.counts)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Joining with `by = join_by(note_id)`
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{emr.dcm }\OtherTok{\textless{}{-}}\NormalTok{ all.counts }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ tidytext}\SpecialCharTok{::}\FunctionTok{cast\_dtm}\NormalTok{(note\_id, lemma, n)}
+\end{Highlighting}
+\end{Shaded}
+
+Then we can use LDA function to fit a 5 topic (\texttt{k=5}) LDA-model
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{emr.lda }\OtherTok{\textless{}{-}}\NormalTok{ topicmodels}\SpecialCharTok{::}\FunctionTok{LDA}\NormalTok{(emr.dcm, }\AttributeTok{k=}\DecValTok{5}\NormalTok{, }\AttributeTok{control=}\FunctionTok{list}\NormalTok{(}\AttributeTok{seed=}\DecValTok{42}\NormalTok{))}
+\NormalTok{emr.topics }\OtherTok{\textless{}{-}}\NormalTok{ tidytext}\SpecialCharTok{::}\FunctionTok{tidy}\NormalTok{(emr.lda, }\AttributeTok{matrix=}\StringTok{\textquotesingle{}beta\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Then we can extract the top terms per assigned topic:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{top.terms }\OtherTok{\textless{}{-}}\NormalTok{ emr.topics }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(topic) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{slice\_max}\NormalTok{(beta, }\AttributeTok{n=}\DecValTok{10}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{ungroup}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{arrange}\NormalTok{(topic, }\SpecialCharTok{{-}}\NormalTok{beta)}
+
+
+\NormalTok{top.terms }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{term=}\NormalTok{tidytext}\SpecialCharTok{::}\FunctionTok{reorder\_within}\NormalTok{(term, beta, topic)) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{ggplot}\NormalTok{(ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(beta, term, }\AttributeTok{fill=}\FunctionTok{factor}\NormalTok{(topic))) }\SpecialCharTok{+} 
+\NormalTok{    ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_col}\NormalTok{(}\AttributeTok{show.legend=}\ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+} 
+\NormalTok{    ggplot2}\SpecialCharTok{::}\FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ topic, }\AttributeTok{scales=}\StringTok{\textquotesingle{}free\textquotesingle{}}\NormalTok{)  }\SpecialCharTok{+}
+\NormalTok{    ggplot2}\SpecialCharTok{::}\FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{,}\AttributeTok{vjust =} \DecValTok{1}\NormalTok{,}\AttributeTok{hjust =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+\NormalTok{    tidytext}\SpecialCharTok{::}\FunctionTok{scale\_y\_reordered}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab2_electronic_medical_records_files/figure-latex/unnamed-chunk-28-1.pdf}
+
+Now we can ask how well do these assigned topics match up to the medical
+specialties from which each of these transcripts was derived.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{specialty\_gamma }\OtherTok{\textless{}{-}}\NormalTok{ tidytext}\SpecialCharTok{::}\FunctionTok{tidy}\NormalTok{(emr.lda, }\AttributeTok{matrix=}\StringTok{\textquotesingle{}gamma\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\# we need to join in the specialty from the note\_id}
+\NormalTok{note\_id\_specialty\_mapping }\OtherTok{\textless{}{-}}\NormalTok{ lemmatized.data }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{document=}\FunctionTok{as.character}\NormalTok{(note\_id)) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(document, medical\_specialty) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{distinct}\NormalTok{()}
+
+\NormalTok{specialty\_gamma }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{left\_join}\NormalTok{(specialty\_gamma, note\_id\_specialty\_mapping)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Joining with `by = join_by(document)`
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{specialty\_gamma }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{medical\_specialty =} \FunctionTok{reorder}\NormalTok{(medical\_specialty, gamma }\SpecialCharTok{*}\NormalTok{ topic)) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{ggplot}\NormalTok{(ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(}\FunctionTok{factor}\NormalTok{(topic), gamma)) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ medical\_specialty) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"topic"}\NormalTok{, }\AttributeTok{y =} \FunctionTok{expression}\NormalTok{(gamma))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab2_electronic_medical_records_files/figure-latex/unnamed-chunk-30-1.pdf}
+
+Interestingly, Surgery, Orthopedic, and Radiology assign mostly to a
+single topics. We'd possibly expect this from radiology due to referring
+to imaging for many different diagnoses/reasons. However, this may all
+just reflect we are using too few topics in our LDA to capture the range
+of possible assignments.
+
+\textbf{10} Repeat this with a 6 topic LDA, do the top terms from the 3
+topic LDA still turn up? How do the specialties get split into
+sub-topics?
+
+yes
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{emr.lda\_6topics }\OtherTok{\textless{}{-}}\NormalTok{ topicmodels}\SpecialCharTok{::}\FunctionTok{LDA}\NormalTok{(emr.dcm, }\AttributeTok{k =} \DecValTok{6}\NormalTok{, }\AttributeTok{control =} \FunctionTok{list}\NormalTok{(}\AttributeTok{seed =} \DecValTok{42}\NormalTok{))}
+\NormalTok{emr.topics\_6topics }\OtherTok{\textless{}{-}}\NormalTok{ tidytext}\SpecialCharTok{::}\FunctionTok{tidy}\NormalTok{(emr.lda\_6topics, }\AttributeTok{matrix =} \StringTok{\textquotesingle{}beta\textquotesingle{}}\NormalTok{)}
+
+
+\NormalTok{top.terms\_6topics }\OtherTok{\textless{}{-}}\NormalTok{ emr.topics\_6topics }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(topic) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{slice\_max}\NormalTok{(beta, }\AttributeTok{n =} \DecValTok{10}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{ungroup}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{arrange}\NormalTok{(topic, }\SpecialCharTok{{-}}\NormalTok{beta)}
+
+\NormalTok{top.terms\_6topics }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{term =}\NormalTok{ tidytext}\SpecialCharTok{::}\FunctionTok{reorder\_within}\NormalTok{(term, beta, topic)) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{ggplot}\NormalTok{(ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(beta, term, }\AttributeTok{fill =} \FunctionTok{factor}\NormalTok{(topic))) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_col}\NormalTok{(}\AttributeTok{show.legend =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ topic, }\AttributeTok{scales =} \StringTok{\textquotesingle{}free\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =}\NormalTok{ ggplot2}\SpecialCharTok{::}\FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{vjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+\NormalTok{  tidytext}\SpecialCharTok{::}\FunctionTok{scale\_y\_reordered}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab2_electronic_medical_records_files/figure-latex/unnamed-chunk-31-1.pdf}
+yes we see that some of the top terms from the 3-topic LDA still appear
+in the top terms for certain topics, but there may be new terms that
+emerge as top terms for the additional topics.
+
+Regarding the split of specialties into sub-topics, we may observe that
+specialties such as Surgery, Orthopedic, and Radiology may still assign
+predominantly to specific topics, but the additional topics may provide
+more granularity in capturing the nuances within each specialty. For
+example, within Surgery, there may be sub-topics related to specific
+procedures or conditions, and similar subdivisions may occur in other
+specialties as well.
+
+\subsection{Credits}\label{credits}
+
+Examples draw heavily on material (and directly quotes/copies text) from
+Julia Slige's \texttt{tidytext} textbook.
+
+\end{document}
