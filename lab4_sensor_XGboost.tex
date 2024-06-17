@@ -1,0 +1,1412 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+There are 3-4 packages you will need to install for today's practical:
+\texttt{install.packages(c("xgboost",\ "eegkit",\ "forecast",\ "tseries",\ "caret"))}
+apart from that everything else should already be available on your
+system.
+
+If you are using a newer Mac you may have to also install
+\href{https://www.xquartz.org/}{quartz} to have everything work (do this
+if you see errors about \texttt{X11} during install/execution).
+
+I will endeavour to use explicit imports to make it clear where
+functions are coming from (functions without \texttt{library\_name::}
+are part of base R or a function we've defined in this notebook).
+
+\begin{verbatim}
+## Warning: package 'xgboost' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'eegkit' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: eegkitdata
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'eegkitdata' was built under R version 4.3.1
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: bigsplines
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'bigsplines' was built under R version 4.3.1
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: quadprog
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'quadprog' was built under R version 4.3.1
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: ica
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'ica' was built under R version 4.3.1
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: rgl
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'rgl' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: signal
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'signal' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'signal'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, poly
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'forecast' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Registered S3 method overwritten by 'quantmod':
+##   method            from
+##   as.zoo.data.frame zoo
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'tseries' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'caret' was built under R version 4.3.1
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: ggplot2
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'ggplot2' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'lattice' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'dplyr' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:signal':
+## 
+##     filter
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:xgboost':
+## 
+##     slice
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'purrr' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'purrr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:caret':
+## 
+##     lift
+\end{verbatim}
+
+\subsection{EEG Eye Detection Data}\label{eeg-eye-detection-data}
+
+One of the most common types of medical sensor data (and one that we
+talked about during the lecture) are Electroencephalograms (EEGs).\\
+These measure mesoscale electrical signals (measured in microvolts)
+within the brain, which are indicative of a region of neuronal activity.
+Typically, EEGs involve an array of sensors (aka channels) placed on the
+scalp with a high degree of covariance between sensors.
+
+As EEG data can be very large and unwieldy, we are going to use a
+relatively small/simple dataset today from
+\href{http://ehrai.com/su/pdf/aihls2013.pdf}{this paper}.
+
+This dataset is a 117 second continuous EEG measurement collected from a
+single person with a device called a ``Emotiv EEG Neuroheadset''. In
+combination with the EEG data collection, a camera was used to record
+whether person being recorded had their eyes open or closed. This was
+eye status was then manually annotated onto the EEG data with \texttt{1}
+indicated the eyes being closed and \texttt{0} the eyes being open.
+Measures microvoltages are listed in chronological order with the first
+measured value at the top of the dataframe.
+
+Let's parse the data directly from the \texttt{h2o} library's (which we
+aren't actually using directly) test data S3 bucket:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eeg\_url }\OtherTok{\textless{}{-}} \StringTok{"https://h2o{-}public{-}test{-}data.s3.amazonaws.com/smalldata/eeg/eeg\_eyestate\_splits.csv"}
+\NormalTok{eeg\_data }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(eeg\_url)}
+
+\CommentTok{\# add timestamp}
+\NormalTok{Fs }\OtherTok{\textless{}{-}} \DecValTok{117} \SpecialCharTok{/} \FunctionTok{nrow}\NormalTok{(eeg\_data)}
+\NormalTok{eeg\_data }\OtherTok{\textless{}{-}} \FunctionTok{transform}\NormalTok{(eeg\_data, }\AttributeTok{ds =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{116.99999}\NormalTok{, }\AttributeTok{by =}\NormalTok{ Fs), }\AttributeTok{eyeDetection =} \FunctionTok{as.factor}\NormalTok{(eyeDetection))}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{table}\NormalTok{(eeg\_data}\SpecialCharTok{$}\NormalTok{eyeDetection))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##    0    1 
+## 8257 6723
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# split dataset into train, validate, test}
+\NormalTok{eeg\_train }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(eeg\_data, split }\SpecialCharTok{==} \StringTok{\textquotesingle{}train\textquotesingle{}}\NormalTok{, }\AttributeTok{select =} \SpecialCharTok{{-}}\NormalTok{split)}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{table}\NormalTok{(eeg\_train}\SpecialCharTok{$}\NormalTok{eyeDetection))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##    0    1 
+## 4916 4072
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eeg\_validate }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(eeg\_data, split }\SpecialCharTok{==} \StringTok{\textquotesingle{}valid\textquotesingle{}}\NormalTok{, }\AttributeTok{select =} \SpecialCharTok{{-}}\NormalTok{split)}
+\NormalTok{eeg\_test }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(eeg\_data, split }\SpecialCharTok{==} \StringTok{\textquotesingle{}test\textquotesingle{}}\NormalTok{, }\AttributeTok{select =} \SpecialCharTok{{-}}\NormalTok{split)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{0} Knowing the \texttt{eeg\_data} contains 117 seconds of data,
+inspect the \texttt{eeg\_data} dataframe and the code above to and
+determine how many samples per second were taken?
+
+Samples per second = 14980/117 = 128
+
+\textbf{1} How many EEG electrodes/sensors were used?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colnames}\NormalTok{(eeg\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "AF3"          "F7"           "F3"           "FC5"          "T7"          
+##  [6] "P7"           "O1"           "O2"           "P8"           "T8"          
+## [11] "FC6"          "F4"           "F8"           "AF4"          "eyeDetection"
+## [16] "split"        "ds"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sensor\_columns }\OtherTok{\textless{}{-}} \FunctionTok{setdiff}\NormalTok{(}\FunctionTok{colnames}\NormalTok{(eeg\_data), }\FunctionTok{c}\NormalTok{(}\StringTok{"split"}\NormalTok{, }\StringTok{"ds"}\NormalTok{, }\StringTok{"eyeDetection"}\NormalTok{))}
+\NormalTok{num\_sensors }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(sensor\_columns)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Exploratory Data
+Analysis}\label{exploratory-data-analysis}
+
+Now that we have the dataset and some basic parameters let's begin with
+the ever important/relevant exploratory data analysis.
+
+First we should check there is no missing data!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(eeg\_data))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+Great, now we can start generating some plots to look at this data
+within the time-domain.
+
+First we use \texttt{reshape2::melt()} to transform the
+\texttt{eeg\_data} dataset from a wide format to a long format expected
+by \texttt{ggplot2}.
+
+Specifically, this converts from ``wide'' where each electrode has its
+own column, to a ``long'' format, where each observation has its own
+row. This format is often more convenient for data analysis and
+visualization, especially when dealing with repeated measurements or
+time-series data.
+
+We then use \texttt{ggplot2} to create a line plot of electrode
+intensities per sampling time, with the lines coloured by electrode, and
+the eye status annotated using dark grey blocks.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{melt }\OtherTok{\textless{}{-}}\NormalTok{ reshape2}\SpecialCharTok{::}\FunctionTok{melt}\NormalTok{(eeg\_data }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{split), }\AttributeTok{id.vars=}\FunctionTok{c}\NormalTok{(}\StringTok{"eyeDetection"}\NormalTok{, }\StringTok{"ds"}\NormalTok{), }\AttributeTok{variable.name =} \StringTok{"Electrode"}\NormalTok{, }\AttributeTok{value.name =} \StringTok{"microvolts"}\NormalTok{)}
+
+
+\NormalTok{ggplot2}\SpecialCharTok{::}\FunctionTok{ggplot}\NormalTok{(melt, ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{ds, }\AttributeTok{y=}\NormalTok{microvolts, }\AttributeTok{color=}\NormalTok{Electrode)) }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{ylim}\NormalTok{(}\DecValTok{3500}\NormalTok{,}\DecValTok{5000}\NormalTok{) }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_vline}\NormalTok{(ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(}\AttributeTok{xintercept=}\NormalTok{ds), }\AttributeTok{data=}\NormalTok{dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(melt, eyeDetection}\SpecialCharTok{==}\DecValTok{1}\NormalTok{), }\AttributeTok{alpha=}\FloatTok{0.005}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab4_sensor_XGboost_files/figure-latex/plot_data-1.pdf}
+
+\textbf{2} Do you see any obvious patterns between eyes being open (dark
+grey blocks in the plot) and the EEG intensities?
+
+Amplitude Differences: There appear to be variations in the amplitude of
+the EEG signals when the eyes are closed compared to when they are open.
+The signals generally show increased amplitude during the periods of eye
+closure (dark grey blocks). Consistent Patterns Across Electrodes: Many
+electrodes has consistent changes in the EEG signal when the eyes are
+closed. Distinct Episodes: The dark grey blocks (indicating eyes closed)
+correspond to more pronounced and synchronized changes in EEG There are
+shifts in the baseline of some channels, which might be indicative of
+different levels of neuronal activity or noise artifacts.
+
+\textbf{3} Similarly, based on the distribution of eye open/close state
+over time to anticipate any temporal correlation between these states?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ggplot2}\SpecialCharTok{::}\FunctionTok{ggplot}\NormalTok{(eeg\_data, ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ ds, }\AttributeTok{y =} \FunctionTok{as.numeric}\NormalTok{(eyeDetection))) }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Time (seconds)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Eye State (0=open, 1=closed)"}\NormalTok{) }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Eye State Over Time"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab4_sensor_XGboost_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eye\_state\_numeric }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(eeg\_data}\SpecialCharTok{$}\NormalTok{eyeDetection) }\SpecialCharTok{{-}} \DecValTok{1}  \CommentTok{\# convert factor to numeric}
+\NormalTok{acf\_result }\OtherTok{\textless{}{-}} \FunctionTok{acf}\NormalTok{(eye\_state\_numeric, }\AttributeTok{lag.max =} \DecValTok{100}\NormalTok{, }\AttributeTok{plot =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab4_sensor_XGboost_files/figure-latex/unnamed-chunk-2-2.pdf}
+ACF Plot: Peaks at regular intervals in the ACF plot suggest
+periodicity. If the ACF decays slowly, it indicates that past values
+have a lasting influence on future values (positive correlation). If it
+oscillates, there might be a periodic pattern.
+
+Let's see if we can directly look at the distribution of EEG intensities
+and see how they related to eye status.
+
+As there are a few extreme outliers in voltage we will use the
+\texttt{dplyr::filter} function to remove values outwith of 3750 to
+50003. The function uses the \texttt{\%in\%} operator to check if each
+value of microvolts is within that range. The function also uses the
+\texttt{dplyr::mutate()} to change the type of the variable eyeDetection
+from numeric to a factor (R's categorical variable type).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{melt\_train }\OtherTok{\textless{}{-}}\NormalTok{ reshape2}\SpecialCharTok{::}\FunctionTok{melt}\NormalTok{(eeg\_train, }\AttributeTok{id.vars=}\FunctionTok{c}\NormalTok{(}\StringTok{"eyeDetection"}\NormalTok{, }\StringTok{"ds"}\NormalTok{), }\AttributeTok{variable.name =} \StringTok{"Electrode"}\NormalTok{, }\AttributeTok{value.name =} \StringTok{"microvolts"}\NormalTok{)}
+
+\CommentTok{\# filter huge outliers in voltage}
+\NormalTok{filt\_melt\_train }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(melt\_train, microvolts }\SpecialCharTok{\%in\%}\NormalTok{ (}\DecValTok{3750}\SpecialCharTok{:}\DecValTok{5000}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}\AttributeTok{eyeDetection=}\FunctionTok{as.factor}\NormalTok{(eyeDetection))}
+
+\NormalTok{ggplot2}\SpecialCharTok{::}\FunctionTok{ggplot}\NormalTok{(filt\_melt\_train, ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y=}\NormalTok{Electrode, }\AttributeTok{x=}\NormalTok{microvolts, }\AttributeTok{fill=}\NormalTok{eyeDetection)) }\SpecialCharTok{+}\NormalTok{ ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_boxplot}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab4_sensor_XGboost_files/figure-latex/compare_distrib-1.pdf}
+
+Plots are great but sometimes so it is also useful to directly look at
+the summary statistics and how they related to eye status. We will do
+this by grouping the data based on eye status and electrode before
+calculating the statistics using the convenient
+\texttt{dplyr::summarise} function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{filt\_melt\_train }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(eyeDetection, Electrode) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{    dplyr}\SpecialCharTok{::}\FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(microvolts), }\AttributeTok{median=}\FunctionTok{median}\NormalTok{(microvolts), }\AttributeTok{sd=}\FunctionTok{sd}\NormalTok{(microvolts)) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{    dplyr}\SpecialCharTok{::}\FunctionTok{arrange}\NormalTok{(Electrode)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'eyeDetection'. You can override using the
+## `.groups` argument.
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 28 x 5
+## # Groups:   eyeDetection [2]
+##    eyeDetection Electrode  mean median    sd
+##    <fct>        <fct>     <dbl>  <dbl> <dbl>
+##  1 0            AF3       4294.   4300  35.4
+##  2 1            AF3       4305.   4300  34.4
+##  3 0            F7        4015.   4020  28.4
+##  4 1            F7        4007.   4000  24.9
+##  5 0            F3        4268.   4260  20.9
+##  6 1            F3        4269.   4260  17.4
+##  7 0            FC5       4124.   4120  17.3
+##  8 1            FC5       4124.   4120  19.2
+##  9 0            T7        4341.   4340  13.9
+## 10 1            T7        4342.   4340  15.5
+## # i 18 more rows
+\end{verbatim}
+
+\textbf{4} Based on these analyses are any electrodes consistently more
+intense or varied when eyes are open? electrodes consistnently showing
+either higher intensity or variability (standard deviation) when eyes
+are open are: AF3 F3 T7 O2 P8 FC6 F4 F8 \#\#\#\# Time-Related Trends
+
+As it looks like there may be a temporal pattern in the data we should
+investigate how it changes over time.
+
+First we will do a statistical test for stationarity:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apply}\NormalTok{(eeg\_train, }\DecValTok{2}\NormalTok{, tseries}\SpecialCharTok{::}\NormalTok{adf.test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in FUN(newX[, i], ...): p-value smaller than printed p-value
+## Warning in FUN(newX[, i], ...): p-value smaller than printed p-value
+## Warning in FUN(newX[, i], ...): p-value smaller than printed p-value
+## Warning in FUN(newX[, i], ...): p-value smaller than printed p-value
+## Warning in FUN(newX[, i], ...): p-value smaller than printed p-value
+## Warning in FUN(newX[, i], ...): p-value smaller than printed p-value
+## Warning in FUN(newX[, i], ...): p-value smaller than printed p-value
+## Warning in FUN(newX[, i], ...): p-value smaller than printed p-value
+## Warning in FUN(newX[, i], ...): p-value smaller than printed p-value
+## Warning in FUN(newX[, i], ...): p-value smaller than printed p-value
+## Warning in FUN(newX[, i], ...): p-value smaller than printed p-value
+## Warning in FUN(newX[, i], ...): p-value smaller than printed p-value
+## Warning in FUN(newX[, i], ...): p-value smaller than printed p-value
+## Warning in FUN(newX[, i], ...): p-value smaller than printed p-value
+## Warning in FUN(newX[, i], ...): p-value smaller than printed p-value
+\end{verbatim}
+
+\begin{verbatim}
+## $AF3
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -20.669, Lag order = 20, p-value = 0.01
+## alternative hypothesis: stationary
+## 
+## 
+## $F7
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -12.079, Lag order = 20, p-value = 0.01
+## alternative hypothesis: stationary
+## 
+## 
+## $F3
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -11.587, Lag order = 20, p-value = 0.01
+## alternative hypothesis: stationary
+## 
+## 
+## $FC5
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -11.122, Lag order = 20, p-value = 0.01
+## alternative hypothesis: stationary
+## 
+## 
+## $T7
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -9.5644, Lag order = 20, p-value = 0.01
+## alternative hypothesis: stationary
+## 
+## 
+## $P7
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -20.7, Lag order = 20, p-value = 0.01
+## alternative hypothesis: stationary
+## 
+## 
+## $O1
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -7.9495, Lag order = 20, p-value = 0.01
+## alternative hypothesis: stationary
+## 
+## 
+## $O2
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -9.3537, Lag order = 20, p-value = 0.01
+## alternative hypothesis: stationary
+## 
+## 
+## $P8
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -20.69, Lag order = 20, p-value = 0.01
+## alternative hypothesis: stationary
+## 
+## 
+## $T8
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -9.9902, Lag order = 20, p-value = 0.01
+## alternative hypothesis: stationary
+## 
+## 
+## $FC6
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -8.6708, Lag order = 20, p-value = 0.01
+## alternative hypothesis: stationary
+## 
+## 
+## $F4
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -10.189, Lag order = 20, p-value = 0.01
+## alternative hypothesis: stationary
+## 
+## 
+## $F8
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -20.642, Lag order = 20, p-value = 0.01
+## alternative hypothesis: stationary
+## 
+## 
+## $AF4
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -20.755, Lag order = 20, p-value = 0.01
+## alternative hypothesis: stationary
+## 
+## 
+## $eyeDetection
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -4.8699, Lag order = 20, p-value = 0.01
+## alternative hypothesis: stationary
+## 
+## 
+## $ds
+## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  newX[, i]
+## Dickey-Fuller = -2.4104, Lag order = 20, p-value = 0.4045
+## alternative hypothesis: stationary
+\end{verbatim}
+
+\textbf{5} What is stationarity? ADF test is used to test for
+stationarity in each variable (electrodes, eye detection, and ``ds''
+variable) of the EEG data. The null hypothesis of the ADF test is that
+the time series has a unit root, indicating non-stationarity, while the
+alternative hypothesis is that the series is stationary. A low p-value
+(typically below a significance level, often 0.05) suggests rejecting
+the null hypothesis in favor of stationarity.
+
+Based on the ADF test results, all variables except for the ``ds''
+variable show evidence of stationarity, as indicated by the low
+p-values. Therefore, the EEG data for the electrodes and eye detection
+appear to exhibit stationary behavior, which means their statistical
+properties do not significantly change over time.
+
+\textbf{6} Why are we interested in stationarity? What do the results of
+these tests tell us? (ignoring the lack of multiple comparison
+correction\ldots)
+
+Stationary time series allow for more straightforward interpretation of
+statistical measures such as mean, variance, and autocorrelation.
+Changes in these measures over time can indicate real shifts in the
+underlying process rather than artifacts of non-stationarity. The
+variables (electrodes and eye detection) showing evidence of
+stationarity suggest that their statistical properties remain consistent
+over time. This stability allows for reliable analysis and
+interpretation of these variables without concerns about evolving
+patterns or trends.
+
+The results of the ADF tests tell us that most of the EEG channels are
+stationary (p-value = 0.01), meaning their properties are stable over
+time. However, the time variable (`ds') is non-stationary (p-value =
+0.4045), which is expected as time itself progresses and is not
+constant.
+
+Then we may want to visually explore patterns of autocorrelation
+(previous values predict future ones) and cross-correlation (correlation
+across channels over time) using \texttt{forecast::ggAcf} function.
+
+The ACF plot displays the cross- and auto-correlation values for
+different lags (i.e., time delayed versions of each electrode's voltage
+timeseries) in the dataset. It helps identify any significant
+correlations between channels and observations at different time points.
+Positive autocorrelation indicates that the increase in voltage observed
+in a given time-interval leads to a proportionate increase in the lagged
+time interval as well. Negative autocorrelation indicates the opposite!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{forecast}\SpecialCharTok{::}\FunctionTok{ggAcf}\NormalTok{(eeg\_train }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{ds))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab4_sensor_XGboost_files/figure-latex/correlation-1.pdf}
+
+\textbf{7} Do any fields show signs of strong autocorrelation (diagonal
+plots)? Do any pairs of fields show signs of cross-correlation? Provide
+examples. Channels such as F7, F3, FC5, and several others show strong
+signs of positive autocorrelation. eyeDetection shows strong
+autocorrelation, suggesting that the state of the eyes (open or closed)
+has a consistent pattern over time. F3 and F4, FC5 and FC6, and other
+adjacent or similarly positioned electrodes might show cross-correlation
+due to their physical proximity on the scalp and the similar brain
+activity they measure.
+
+\paragraph{Frequency-Space}\label{frequency-space}
+
+We can also explore the data in frequency space by using a Fast Fourier
+Transform.\\
+After the FFT we can summarise the distributions of frequencies by their
+density across the power spectrum. This will let us see if there any
+obvious patterns related to eye status in the overall frequency
+distributions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eegkit}\SpecialCharTok{::}\FunctionTok{eegpsd}\NormalTok{(eeg\_train }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(eyeDetection }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{eyeDetection, }\SpecialCharTok{{-}}\NormalTok{ds), }\AttributeTok{Fs =}\NormalTok{ Fs, }\AttributeTok{xlab=}\StringTok{"Eye Open"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab4_sensor_XGboost_files/figure-latex/fft_open-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eegkit}\SpecialCharTok{::}\FunctionTok{eegpsd}\NormalTok{(eeg\_train }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(eyeDetection }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{eyeDetection, }\SpecialCharTok{{-}}\NormalTok{ds), }\AttributeTok{Fs =}\NormalTok{ Fs, }\AttributeTok{xlab=}\StringTok{"Eye Closed"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab4_sensor_XGboost_files/figure-latex/fft_closed-1.pdf}
+\textbf{8} Do you see any differences between the power spectral
+densities for the two eye states? If so, describe them.
+
+Eyes Closed: Higher power in the lower frequency range, indicating more
+prominent alpha wave activity.
+
+Eyes Open: More uniform power distribution with generally lower power
+levels, indicating reduced alpha wave activity.
+
+\paragraph{Independent Component
+Analysis}\label{independent-component-analysis}
+
+We may also wish to explore whether there are multiple sources of
+neuronal activity being picked up by the sensors.\\
+This can be achieved using a process known as independent component
+analysis (ICA) which decorrelates the channels and identifies the
+primary sources of signal within the decorrelated matrix.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ica }\OtherTok{\textless{}{-}}\NormalTok{ eegkit}\SpecialCharTok{::}\FunctionTok{eegica}\NormalTok{(eeg\_train }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{eyeDetection, }\SpecialCharTok{{-}}\NormalTok{ds), }\AttributeTok{nc=}\DecValTok{3}\NormalTok{, }\AttributeTok{method=}\StringTok{\textquotesingle{}fast\textquotesingle{}}\NormalTok{, }\AttributeTok{type=}\StringTok{\textquotesingle{}time\textquotesingle{}}\NormalTok{)}
+\NormalTok{mix }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{as\_tibble}\NormalTok{(ica}\SpecialCharTok{$}\NormalTok{M)}
+\NormalTok{mix}\SpecialCharTok{$}\NormalTok{eyeDetection }\OtherTok{\textless{}{-}}\NormalTok{ eeg\_train}\SpecialCharTok{$}\NormalTok{eyeDetection}
+\NormalTok{mix}\SpecialCharTok{$}\NormalTok{ds }\OtherTok{\textless{}{-}}\NormalTok{ eeg\_train}\SpecialCharTok{$}\NormalTok{ds}
+
+\NormalTok{mix\_melt }\OtherTok{\textless{}{-}}\NormalTok{ reshape2}\SpecialCharTok{::}\FunctionTok{melt}\NormalTok{(mix, }\AttributeTok{id.vars=}\FunctionTok{c}\NormalTok{(}\StringTok{"eyeDetection"}\NormalTok{, }\StringTok{"ds"}\NormalTok{), }\AttributeTok{variable.name =} \StringTok{"Independent Component"}\NormalTok{, }\AttributeTok{value.name =} \StringTok{"M"}\NormalTok{)}
+
+
+\NormalTok{ggplot2}\SpecialCharTok{::}\FunctionTok{ggplot}\NormalTok{(mix\_melt, ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{ds, }\AttributeTok{y=}\NormalTok{M, }\AttributeTok{color=}\StringTok{\textasciigrave{}}\AttributeTok{Independent Component}\StringTok{\textasciigrave{}}\NormalTok{)) }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+} 
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{geom\_vline}\NormalTok{(ggplot2}\SpecialCharTok{::}\FunctionTok{aes}\NormalTok{(}\AttributeTok{xintercept=}\NormalTok{ds), }\AttributeTok{data=}\NormalTok{dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(mix\_melt, eyeDetection}\SpecialCharTok{==}\DecValTok{1}\NormalTok{), }\AttributeTok{alpha=}\FloatTok{0.005}\NormalTok{) }\SpecialCharTok{+}
+\NormalTok{  ggplot2}\SpecialCharTok{::}\FunctionTok{scale\_y\_log10}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab4_sensor_XGboost_files/figure-latex/ica-1.pdf}
+
+\textbf{9} Does this suggest eye opening relates to an independent
+component of activity across the electrodes?
+
+Yes, the ICA analysis suggests that eye opening relates to an
+independent component of activity across the electrodes. The plotted
+independent components show distinct patterns when eyes are open,
+indicated by vertical lines and changes in the activity levels, which
+signifies that specific sources of neuronal activity are correlated with
+the eye status.
+
+\subsubsection{Eye Opening Prediction}\label{eye-opening-prediction}
+
+Now that we've explored the data let's use a simple model to see how
+well we can predict eye status from the EEGs:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Convert the training and validation datasets to matrices}
+\NormalTok{eeg\_train\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(eeg\_train, }\SpecialCharTok{{-}}\NormalTok{eyeDetection, }\SpecialCharTok{{-}}\NormalTok{ds))}
+\NormalTok{eeg\_train\_labels }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(eeg\_train}\SpecialCharTok{$}\NormalTok{eyeDetection) }\SpecialCharTok{{-}}\DecValTok{1}
+
+\NormalTok{eeg\_validate\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(eeg\_validate, }\SpecialCharTok{{-}}\NormalTok{eyeDetection, }\SpecialCharTok{{-}}\NormalTok{ds))}
+\NormalTok{eeg\_validate\_labels }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(eeg\_validate}\SpecialCharTok{$}\NormalTok{eyeDetection) }\SpecialCharTok{{-}}\DecValTok{1}
+
+\CommentTok{\# Build the xgboost model}
+\NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{xgboost}\NormalTok{(}\AttributeTok{data =}\NormalTok{ eeg\_train\_matrix, }
+                 \AttributeTok{label =}\NormalTok{ eeg\_train\_labels,}
+                 \AttributeTok{nrounds =} \DecValTok{100}\NormalTok{,}
+                 \AttributeTok{max\_depth =} \DecValTok{4}\NormalTok{,}
+                 \AttributeTok{eta =} \FloatTok{0.1}\NormalTok{,}
+                 \AttributeTok{objective =} \StringTok{"binary:logistic"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  train-logloss:0.672173 
+## [2]  train-logloss:0.653965 
+## [3]  train-logloss:0.638226 
+## [4]  train-logloss:0.622881 
+## [5]  train-logloss:0.610129 
+## [6]  train-logloss:0.599369 
+## [7]  train-logloss:0.588913 
+## [8]  train-logloss:0.577916 
+## [9]  train-logloss:0.568707 
+## [10] train-logloss:0.560877 
+## [11] train-logloss:0.553595 
+## [12] train-logloss:0.546697 
+## [13] train-logloss:0.540356 
+## [14] train-logloss:0.535189 
+## [15] train-logloss:0.528949 
+## [16] train-logloss:0.523818 
+## [17] train-logloss:0.517499 
+## [18] train-logloss:0.513480 
+## [19] train-logloss:0.509431 
+## [20] train-logloss:0.504572 
+## [21] train-logloss:0.501298 
+## [22] train-logloss:0.499068 
+## [23] train-logloss:0.493927 
+## [24] train-logloss:0.488979 
+## [25] train-logloss:0.485995 
+## [26] train-logloss:0.484120 
+## [27] train-logloss:0.480735 
+## [28] train-logloss:0.476749 
+## [29] train-logloss:0.475324 
+## [30] train-logloss:0.471852 
+## [31] train-logloss:0.469037 
+## [32] train-logloss:0.466092 
+## [33] train-logloss:0.464552 
+## [34] train-logloss:0.462219 
+## [35] train-logloss:0.457720 
+## [36] train-logloss:0.455526 
+## [37] train-logloss:0.452435 
+## [38] train-logloss:0.448676 
+## [39] train-logloss:0.447381 
+## [40] train-logloss:0.444740 
+## [41] train-logloss:0.442885 
+## [42] train-logloss:0.441704 
+## [43] train-logloss:0.437273 
+## [44] train-logloss:0.435778 
+## [45] train-logloss:0.432542 
+## [46] train-logloss:0.431302 
+## [47] train-logloss:0.430229 
+## [48] train-logloss:0.426916 
+## [49] train-logloss:0.423800 
+## [50] train-logloss:0.421908 
+## [51] train-logloss:0.419130 
+## [52] train-logloss:0.417934 
+## [53] train-logloss:0.415003 
+## [54] train-logloss:0.414027 
+## [55] train-logloss:0.412499 
+## [56] train-logloss:0.409956 
+## [57] train-logloss:0.408821 
+## [58] train-logloss:0.407170 
+## [59] train-logloss:0.404487 
+## [60] train-logloss:0.402856 
+## [61] train-logloss:0.402061 
+## [62] train-logloss:0.401169 
+## [63] train-logloss:0.400292 
+## [64] train-logloss:0.399799 
+## [65] train-logloss:0.397281 
+## [66] train-logloss:0.395909 
+## [67] train-logloss:0.393773 
+## [68] train-logloss:0.390365 
+## [69] train-logloss:0.389440 
+## [70] train-logloss:0.386978 
+## [71] train-logloss:0.386324 
+## [72] train-logloss:0.385750 
+## [73] train-logloss:0.385101 
+## [74] train-logloss:0.382760 
+## [75] train-logloss:0.381081 
+## [76] train-logloss:0.378908 
+## [77] train-logloss:0.378428 
+## [78] train-logloss:0.376087 
+## [79] train-logloss:0.374926 
+## [80] train-logloss:0.374230 
+## [81] train-logloss:0.373538 
+## [82] train-logloss:0.372971 
+## [83] train-logloss:0.371651 
+## [84] train-logloss:0.371134 
+## [85] train-logloss:0.370717 
+## [86] train-logloss:0.369246 
+## [87] train-logloss:0.368063 
+## [88] train-logloss:0.366157 
+## [89] train-logloss:0.362902 
+## [90] train-logloss:0.362461 
+## [91] train-logloss:0.361028 
+## [92] train-logloss:0.359356 
+## [93] train-logloss:0.358512 
+## [94] train-logloss:0.356873 
+## [95] train-logloss:0.356331 
+## [96] train-logloss:0.355519 
+## [97] train-logloss:0.354799 
+## [98] train-logloss:0.353089 
+## [99] train-logloss:0.351400 
+## [100]    train-logloss:0.350408
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ##### xgb.Booster
+## raw: 154.4 Kb 
+## call:
+##   xgb.train(params = params, data = dtrain, nrounds = nrounds, 
+##     watchlist = watchlist, verbose = verbose, print_every_n = print_every_n, 
+##     early_stopping_rounds = early_stopping_rounds, maximize = maximize, 
+##     save_period = save_period, save_name = save_name, xgb_model = xgb_model, 
+##     callbacks = callbacks, max_depth = 4, eta = 0.1, objective = "binary:logistic")
+## params (as set within xgb.train):
+##   max_depth = "4", eta = "0.1", objective = "binary:logistic", validate_parameters = "TRUE"
+## xgb.attributes:
+##   niter
+## callbacks:
+##   cb.print.evaluation(period = print_every_n)
+##   cb.evaluation.log()
+## # of features: 14 
+## niter: 100
+## nfeatures : 14 
+## evaluation_log:
+##      iter train_logloss
+##     <num>         <num>
+##         1     0.6721733
+##         2     0.6539652
+## ---                    
+##        99     0.3514004
+##       100     0.3504083
+\end{verbatim}
+
+\textbf{10} Using the \texttt{caret} library (or any other library/model
+type you want such as a naive Bayes) fit another model to predict eye
+opening.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(caret)}
+\FunctionTok{library}\NormalTok{(randomForest)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'randomForest' was built under R version 4.3.1
+\end{verbatim}
+
+\begin{verbatim}
+## randomForest 4.7-1.1
+\end{verbatim}
+
+\begin{verbatim}
+## Type rfNews() to see new features/changes/bug fixes.
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'randomForest'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     combine
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:ggplot2':
+## 
+##     margin
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Prepare training and validation datasets}
+\NormalTok{eeg\_train\_data }\OtherTok{\textless{}{-}}\NormalTok{ eeg\_train }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{ds)}
+\NormalTok{eeg\_validate\_data }\OtherTok{\textless{}{-}}\NormalTok{ eeg\_validate }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{ds)}
+
+\CommentTok{\# Convert eyeDetection to a factor for classification}
+\NormalTok{eeg\_train\_data}\SpecialCharTok{$}\NormalTok{eyeDetection }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(eeg\_train\_data}\SpecialCharTok{$}\NormalTok{eyeDetection)}
+\NormalTok{eeg\_validate\_data}\SpecialCharTok{$}\NormalTok{eyeDetection }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(eeg\_validate\_data}\SpecialCharTok{$}\NormalTok{eyeDetection)}
+
+\CommentTok{\# Set up the train control for cross{-}validation}
+\NormalTok{train\_control }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+
+\CommentTok{\# Train the random forest model}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{rf\_model }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(eyeDetection }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data =}\NormalTok{ eeg\_train\_data, }
+                  \AttributeTok{method =} \StringTok{"rf"}\NormalTok{, }
+                  \AttributeTok{trControl =}\NormalTok{ train\_control)}
+
+\CommentTok{\# Print the model summary}
+\FunctionTok{print}\NormalTok{(rf\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Random Forest 
+## 
+## 8988 samples
+##   14 predictor
+##    2 classes: '0', '1' 
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 7191, 7191, 7189, 7190, 7191 
+## Resampling results across tuning parameters:
+## 
+##   mtry  Accuracy   Kappa    
+##    2    0.9162239  0.8300647
+##    8    0.9191161  0.8361384
+##   14    0.9156671  0.8291978
+## 
+## Accuracy was used to select the optimal model using the largest value.
+## The final value used for the model was mtry = 8.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Predict on the validation data}
+\NormalTok{rf\_predictions }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(rf\_model, eeg\_validate\_data)}
+
+\CommentTok{\# Calculate confusion matrix and accuracy}
+\NormalTok{confusion\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{confusionMatrix}\NormalTok{(rf\_predictions, eeg\_validate\_data}\SpecialCharTok{$}\NormalTok{eyeDetection)}
+\FunctionTok{print}\NormalTok{(confusion\_matrix)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction    0    1
+##          0 1536  138
+##          1   99 1223
+##                                           
+##                Accuracy : 0.9209          
+##                  95% CI : (0.9106, 0.9303)
+##     No Information Rate : 0.5457          
+##     P-Value [Acc > NIR] : < 2e-16         
+##                                           
+##                   Kappa : 0.8401          
+##                                           
+##  Mcnemar's Test P-Value : 0.01357         
+##                                           
+##             Sensitivity : 0.9394          
+##             Specificity : 0.8986          
+##          Pos Pred Value : 0.9176          
+##          Neg Pred Value : 0.9251          
+##              Prevalence : 0.5457          
+##          Detection Rate : 0.5127          
+##    Detection Prevalence : 0.5587          
+##       Balanced Accuracy : 0.9190          
+##                                           
+##        'Positive' Class : 0               
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Print overall accuracy}
+\NormalTok{accuracy }\OtherTok{\textless{}{-}}\NormalTok{ confusion\_matrix}\SpecialCharTok{$}\NormalTok{overall[}\StringTok{\textquotesingle{}Accuracy\textquotesingle{}}\NormalTok{]}
+\FunctionTok{print}\NormalTok{(accuracy)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Accuracy 
+## 0.9208945
+\end{verbatim}
+
+\textbf{11} Using the best performing of the two models (on the
+validation dataset) calculate and report the test performance (filling
+in the code below):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(caret)}
+\FunctionTok{library}\NormalTok{(xgboost)}
+\FunctionTok{library}\NormalTok{(randomForest)}
+
+\NormalTok{eeg\_train\_data }\OtherTok{\textless{}{-}}\NormalTok{ eeg\_train }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{ds)}
+\NormalTok{eeg\_validate\_data }\OtherTok{\textless{}{-}}\NormalTok{ eeg\_validate }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{ds)}
+
+\NormalTok{eeg\_train\_data}\SpecialCharTok{$}\NormalTok{eyeDetection }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(eeg\_train\_data}\SpecialCharTok{$}\NormalTok{eyeDetection)}
+\NormalTok{eeg\_validate\_data}\SpecialCharTok{$}\NormalTok{eyeDetection }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(eeg\_validate\_data}\SpecialCharTok{$}\NormalTok{eyeDetection)}
+
+\NormalTok{eeg\_train\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(eeg\_train, }\SpecialCharTok{{-}}\NormalTok{eyeDetection, }\SpecialCharTok{{-}}\NormalTok{ds))}
+\NormalTok{eeg\_train\_labels }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(eeg\_train}\SpecialCharTok{$}\NormalTok{eyeDetection) }\SpecialCharTok{{-}} \DecValTok{1}
+
+\NormalTok{eeg\_validate\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(dplyr}\SpecialCharTok{::}\FunctionTok{select}\NormalTok{(eeg\_validate, }\SpecialCharTok{{-}}\NormalTok{eyeDetection, }\SpecialCharTok{{-}}\NormalTok{ds))}
+\NormalTok{eeg\_validate\_labels }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(eeg\_validate}\SpecialCharTok{$}\NormalTok{eyeDetection) }\SpecialCharTok{{-}} \DecValTok{1}
+
+\NormalTok{xgb\_model }\OtherTok{\textless{}{-}} \FunctionTok{xgboost}\NormalTok{(}\AttributeTok{data =}\NormalTok{ eeg\_train\_matrix, }
+                     \AttributeTok{label =}\NormalTok{ eeg\_train\_labels,}
+                     \AttributeTok{nrounds =} \DecValTok{100}\NormalTok{,}
+                     \AttributeTok{max\_depth =} \DecValTok{4}\NormalTok{,}
+                     \AttributeTok{eta =} \FloatTok{0.1}\NormalTok{,}
+                     \AttributeTok{objective =} \StringTok{"binary:logistic"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  train-logloss:0.672173 
+## [2]  train-logloss:0.653965 
+## [3]  train-logloss:0.638226 
+## [4]  train-logloss:0.622881 
+## [5]  train-logloss:0.610129 
+## [6]  train-logloss:0.599369 
+## [7]  train-logloss:0.588913 
+## [8]  train-logloss:0.577916 
+## [9]  train-logloss:0.568707 
+## [10] train-logloss:0.560877 
+## [11] train-logloss:0.553595 
+## [12] train-logloss:0.546697 
+## [13] train-logloss:0.540356 
+## [14] train-logloss:0.535189 
+## [15] train-logloss:0.528949 
+## [16] train-logloss:0.523818 
+## [17] train-logloss:0.517499 
+## [18] train-logloss:0.513480 
+## [19] train-logloss:0.509431 
+## [20] train-logloss:0.504572 
+## [21] train-logloss:0.501298 
+## [22] train-logloss:0.499068 
+## [23] train-logloss:0.493927 
+## [24] train-logloss:0.488979 
+## [25] train-logloss:0.485995 
+## [26] train-logloss:0.484120 
+## [27] train-logloss:0.480735 
+## [28] train-logloss:0.476749 
+## [29] train-logloss:0.475324 
+## [30] train-logloss:0.471852 
+## [31] train-logloss:0.469037 
+## [32] train-logloss:0.466092 
+## [33] train-logloss:0.464552 
+## [34] train-logloss:0.462219 
+## [35] train-logloss:0.457720 
+## [36] train-logloss:0.455526 
+## [37] train-logloss:0.452435 
+## [38] train-logloss:0.448676 
+## [39] train-logloss:0.447381 
+## [40] train-logloss:0.444740 
+## [41] train-logloss:0.442885 
+## [42] train-logloss:0.441704 
+## [43] train-logloss:0.437273 
+## [44] train-logloss:0.435778 
+## [45] train-logloss:0.432542 
+## [46] train-logloss:0.431302 
+## [47] train-logloss:0.430229 
+## [48] train-logloss:0.426916 
+## [49] train-logloss:0.423800 
+## [50] train-logloss:0.421908 
+## [51] train-logloss:0.419130 
+## [52] train-logloss:0.417934 
+## [53] train-logloss:0.415003 
+## [54] train-logloss:0.414027 
+## [55] train-logloss:0.412499 
+## [56] train-logloss:0.409956 
+## [57] train-logloss:0.408821 
+## [58] train-logloss:0.407170 
+## [59] train-logloss:0.404487 
+## [60] train-logloss:0.402856 
+## [61] train-logloss:0.402061 
+## [62] train-logloss:0.401169 
+## [63] train-logloss:0.400292 
+## [64] train-logloss:0.399799 
+## [65] train-logloss:0.397281 
+## [66] train-logloss:0.395909 
+## [67] train-logloss:0.393773 
+## [68] train-logloss:0.390365 
+## [69] train-logloss:0.389440 
+## [70] train-logloss:0.386978 
+## [71] train-logloss:0.386324 
+## [72] train-logloss:0.385750 
+## [73] train-logloss:0.385101 
+## [74] train-logloss:0.382760 
+## [75] train-logloss:0.381081 
+## [76] train-logloss:0.378908 
+## [77] train-logloss:0.378428 
+## [78] train-logloss:0.376087 
+## [79] train-logloss:0.374926 
+## [80] train-logloss:0.374230 
+## [81] train-logloss:0.373538 
+## [82] train-logloss:0.372971 
+## [83] train-logloss:0.371651 
+## [84] train-logloss:0.371134 
+## [85] train-logloss:0.370717 
+## [86] train-logloss:0.369246 
+## [87] train-logloss:0.368063 
+## [88] train-logloss:0.366157 
+## [89] train-logloss:0.362902 
+## [90] train-logloss:0.362461 
+## [91] train-logloss:0.361028 
+## [92] train-logloss:0.359356 
+## [93] train-logloss:0.358512 
+## [94] train-logloss:0.356873 
+## [95] train-logloss:0.356331 
+## [96] train-logloss:0.355519 
+## [97] train-logloss:0.354799 
+## [98] train-logloss:0.353089 
+## [99] train-logloss:0.351400 
+## [100]    train-logloss:0.350408
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{xgb\_predictions }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(xgb\_model, eeg\_validate\_matrix)}
+\NormalTok{xgb\_predictions }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(xgb\_predictions }\SpecialCharTok{\textgreater{}} \FloatTok{0.5}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+
+\NormalTok{xgb\_confusion\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{confusionMatrix}\NormalTok{(}\FunctionTok{as.factor}\NormalTok{(xgb\_predictions), }\FunctionTok{as.factor}\NormalTok{(eeg\_validate\_labels))}
+\NormalTok{xgb\_accuracy }\OtherTok{\textless{}{-}}\NormalTok{ xgb\_confusion\_matrix}\SpecialCharTok{$}\NormalTok{overall[}\StringTok{\textquotesingle{}Accuracy\textquotesingle{}}\NormalTok{]}
+\FunctionTok{print}\NormalTok{(xgb\_accuracy)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Accuracy 
+## 0.8317757
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{train\_control }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{5}\NormalTok{)}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{rf\_model }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(eyeDetection }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data =}\NormalTok{ eeg\_train\_data, }
+                  \AttributeTok{method =} \StringTok{"rf"}\NormalTok{, }
+                  \AttributeTok{trControl =}\NormalTok{ train\_control)}
+
+\NormalTok{rf\_predictions }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(rf\_model, eeg\_validate\_data)}
+
+\NormalTok{rf\_confusion\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{confusionMatrix}\NormalTok{(rf\_predictions, eeg\_validate\_data}\SpecialCharTok{$}\NormalTok{eyeDetection)}
+\NormalTok{rf\_accuracy }\OtherTok{\textless{}{-}}\NormalTok{ rf\_confusion\_matrix}\SpecialCharTok{$}\NormalTok{overall[}\StringTok{\textquotesingle{}Accuracy\textquotesingle{}}\NormalTok{]}
+\FunctionTok{print}\NormalTok{(rf\_accuracy)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  Accuracy 
+## 0.9208945
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Compare the accuracies and select the best model}
+\ControlFlowTok{if}\NormalTok{ (xgb\_accuracy }\SpecialCharTok{\textgreater{}}\NormalTok{ rf\_accuracy) \{}
+\NormalTok{  best\_model }\OtherTok{\textless{}{-}}\NormalTok{ xgb\_model}
+\NormalTok{  best\_predictions }\OtherTok{\textless{}{-}}\NormalTok{ xgb\_predictions}
+\NormalTok{  best\_confusion\_matrix }\OtherTok{\textless{}{-}}\NormalTok{ xgb\_confusion\_matrix}
+\NormalTok{  best\_accuracy }\OtherTok{\textless{}{-}}\NormalTok{ xgb\_accuracy}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{  best\_model }\OtherTok{\textless{}{-}}\NormalTok{ rf\_model}
+\NormalTok{  best\_predictions }\OtherTok{\textless{}{-}}\NormalTok{ rf\_predictions}
+\NormalTok{  best\_confusion\_matrix }\OtherTok{\textless{}{-}}\NormalTok{ rf\_confusion\_matrix}
+\NormalTok{  best\_accuracy }\OtherTok{\textless{}{-}}\NormalTok{ rf\_accuracy}
+\NormalTok{\}}
+
+\FunctionTok{print}\NormalTok{(best\_confusion\_matrix)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction    0    1
+##          0 1536  138
+##          1   99 1223
+##                                           
+##                Accuracy : 0.9209          
+##                  95% CI : (0.9106, 0.9303)
+##     No Information Rate : 0.5457          
+##     P-Value [Acc > NIR] : < 2e-16         
+##                                           
+##                   Kappa : 0.8401          
+##                                           
+##  Mcnemar's Test P-Value : 0.01357         
+##                                           
+##             Sensitivity : 0.9394          
+##             Specificity : 0.8986          
+##          Pos Pred Value : 0.9176          
+##          Neg Pred Value : 0.9251          
+##              Prevalence : 0.5457          
+##          Detection Rate : 0.5127          
+##    Detection Prevalence : 0.5587          
+##       Balanced Accuracy : 0.9190          
+##                                           
+##        'Positive' Class : 0               
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Best model accuracy: "}\NormalTok{, best\_accuracy))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Best model accuracy:  0.920894526034713"
+\end{verbatim}
+
+\textbf{12} Describe 2 possible alternative modeling approaches for
+prediction of eye opening from EEGs we discussed in the lecture but
+haven't explored in this notebook.
+
+Hidden Markov Models (HMMs):
+
+These models describe the data as resulting from a series of hidden
+states, where the observed EEG values are derived from these hidden
+states. The transitions between states follow the Markov property,
+meaning only the previous state(s) matter. HMMs are well-suited for
+classification and detection tasks in time-series data, making them a
+potential method for predicting eye opening based on EEG signals
+
+Gaussian Processes: This non-parametric Bayesian approach models the
+data by defining a distribution over all possible functions consistent
+with the observed data. Gaussian Processes are characterized by a
+covariance kernel, which can capture time, frequency, and state-space
+models. They provide a flexible framework for predicting complex
+patterns in EEG data, such as those associated with eye
+opening\hspace{0pt}.
+
+\textbf{13} What are 2 R libraries you could use to implement these
+approaches? (note: you don't actually have to implement them though!)
+HMMs - depmixS4: This package allows for the estimation and modeling of
+hidden Markov models. It supports mixtures of various types of
+distributions, making it suitable for analyzing EEG data.
+
+Gaussian Processes - kernlab: This library supports a variety of
+kernel-based learning methods, including Gaussian Processes for
+regression and classification.
+
+\subsection{Optional}\label{optional}
+
+\textbf{14} (Optional) As this is the last practical of the course - let
+me know how you would change future offerings of this course. This will
+not impact your marks!
+
+\begin{itemize}
+\item
+  What worked and didn't work for you (e.g., in terms of the practicals,
+  tutorials, and lectures)?
+\item
+  Was learning how to run the practicals on your own machines instead of
+  a clean server that will disappear after the course worth the
+  technical challenges?
+\item
+  What would you add or remove from the course?
+\item
+  What was the main thing you will take away from this course?
+\end{itemize}
+
+\end{document}
